@@ -62,11 +62,11 @@
     }
 
     //tạo lớp student db 
-
     class accountDB{   
         public static function get_all_account(){
             global $bankDB;               
-            $result = [];//Khai báo biến mảng kết quả để lưu trữ danh sách các đối tượng sinh viên
+            //Khai báo biến mảng kết quả để lưu trữ danh sách các đối tượng 
+            $result = [];
             foreach ($bankDB as $key => $value) {
                 $ac = new account(
                 $value['accountNo'],
@@ -78,7 +78,7 @@
                 $result[] = $ac;
             }
             return $result;
-        }    
+        }   
     }
 
 ?>

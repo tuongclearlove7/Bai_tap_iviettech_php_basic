@@ -57,9 +57,13 @@
         public function getProduction(){
             return $this->production;
        }
+
+      
     }
 
-    //tạo lớp bookDB
+
+    //tạo lớp student db 
+
     class bookDB{   
         public static function get_all_book(){
             global $books;               

@@ -1,6 +1,5 @@
 <?php
     $error_login = '';
-    //Định nghĩa hàm kiểm tra tài khoản có hay không
     function check_login($bankDB, $accountNo,$password){
         
         foreach ($bankDB as $key => $value) {
@@ -8,7 +7,6 @@
                 return true;    
             }
         }
-        
         return false;
     }
 
@@ -18,11 +16,30 @@
             if($accountNo==$value['accountNo'] && $password == $value['password']){
                 return true;    
             }
-            
         }
-        
         return false;
     }
-    //Kiểm tra id có trong session không
+
+    function surplus_Amount($bank){
+        $surplus = 0;
+        if(isset($bank)){
+            foreach ($bank as $key => $value){
+                $surplus = $surplus + $value['amount'];
+            }
+        }
+        return $surplus;
+    }
+
+    function check_Limit_Amount($list_account, $accountNo, $amount, $sur){  
+        foreach ($list_account as $key => $value){
+            if($accountNo == $value -> getAccountNo()){
+                if($amount > $sur){
+                    return true;
+                }
+            }
+        } 
+        return false;
+    }
+ 
 
 ?>

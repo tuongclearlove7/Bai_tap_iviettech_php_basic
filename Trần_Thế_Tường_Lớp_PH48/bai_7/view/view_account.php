@@ -53,13 +53,13 @@
                                 <p>Account no : <?php echo $account_no?></p>
                                 <p>Owner name : <?php echo $owner_name?></p>
                                 <p>password : <?php echo $value['password']; ?></p>  
-                                <p>amount : <?php 
-                                    if(isset($_SESSION['amount_send'])){ 
-                                        echo $_SESSION['your_amount'] - $_SESSION['amount_send'];
-                                    }
-                                    else{
-                                        echo $your_amount;;
-                                    }
+                                <p>amount : <?php //echo $your_amount;
+                                if(isset($surplus_amount)){
+                                    echo $surplus_amount;
+                                }
+                                else{
+                                    echo $your_amount;
+                                }
                                 ?></p> 
                             </div>
                         </form>

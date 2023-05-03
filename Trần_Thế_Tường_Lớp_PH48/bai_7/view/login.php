@@ -17,14 +17,14 @@
           <label for="" class="form-label">accountNo : 1234</label>
           <input type="text"
             class="form-control" name="accountNo" id="" aria-describedby="helpId" placeholder="accountNo"
-            value="<?php echo isset($_COOKIE['accountNo'])? $_COOKIE['accountNo']: '' ?>"
+            value="<?php echo '1234' //echo isset($_COOKIE['accountNo'])? $_COOKIE['accountNo']: '' ?>"
             >          
         </div>
         <div class="mb-3">
           <label for="" class="form-label">password : 12345</label>
           <input type="password"
             class="form-control" name="password" id="" aria-describedby="helpId" placeholder="PassWord"
-            value="<?php echo isset($_COOKIE['password'])? $_COOKIE['password']: '' ?>"
+            value="<?php echo '12345' //echo isset($_COOKIE['password'])? $_COOKIE['password']: '' ?>"
             >          
         </div>
         <div class="form-check">

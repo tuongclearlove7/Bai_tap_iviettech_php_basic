@@ -41,18 +41,46 @@
     </nav>   
     
      <main>
-        <h2>Deposit</h2>
-        <h4>Số tài khoản đã chuyển : <?php if(isset($_SESSION['deposit']))
-                                            {print_r($_SESSION['deposit'][1]);} ?>
-        </h4>
-        <h4>Số tiền đã gửi : <?php if(isset($_SESSION['deposit']))
-                                            {print_r($_SESSION['deposit'][0]);} ?>
-         <h4>Số tiền còn lại trong tk : <?php if(isset($_SESSION['amount_send'])){ 
-                                                echo $_SESSION['your_amount'] -  $_SESSION['amount_send'];} ?>
-        </h4>
-     </main>
-   
 
+        <h2>Deposit</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Stt</th>
+                    <th>số tài khoản đã chuyển</th>
+                    <th>số tiền đã chuyển</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php $surplus_amount = ''; ?>
+            <?php if(isset($_SESSION['deposit'])): ?>
+                <?php foreach ($_SESSION['deposit'] as $key => $value):?>
+                <tr>
+                    <td><?php echo $key+1;?></td>
+                    <td><?php echo $value['sendAccountNo'];?></td>
+                    <td><?php echo $value['amount'];?></td>
+                    <?php $surplus_amount = $_SESSION['your_amount'] - surplus_Amount($_SESSION['deposit']);?>
+                </tr>
+                <?php endforeach;?>
+            <?php endif; ?>
+            <h3>Số dư còn lại trong tk : 
+                <?php 
+                if($surplus_amount == '')
+                    echo $_SESSION['your_amount'];
+                else{
+                    echo $surplus_amount;
+                }                
+            ?></h3>
+            </tbody>
+        </table>
+
+        <?php 
+        if(isset($_SESSION['deposit']))
+            return;
+        else 
+            echo '<h4>hiện chưa có hóa đơn nào</h4>';
+        ?>
+     </main>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
