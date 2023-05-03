@@ -25,10 +25,10 @@ switch ($action) {
         include('./view/home_oop.php'); 
           
         break;
-    case 'add_book':
+    // case 'add_book':
         
-        include('view/add_book.php'); 
-    break;
+    //     include('view/add_book.php'); 
+    // break;
     case 'save_book':
         //lấy tất cả dữ liệu trong form
         $book = [

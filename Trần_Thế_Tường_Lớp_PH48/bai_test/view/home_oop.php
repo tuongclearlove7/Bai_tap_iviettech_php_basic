@@ -80,8 +80,7 @@
                 </form> 
                
                 <div class="list_book">
-                <a name="" id="" class="btn btn-primary" 
-                href="?action=add_book" role="button">Add book</a>
+               <?php require('./view/add_book.php'); ?>
                         <table class="table">
                             <thead>
                                 <tr>
